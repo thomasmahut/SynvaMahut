@@ -22,11 +22,7 @@
    "type": "image/png",
    "sizes": "152x152"
   },
-  {
-   "src": "icon/apple-icon-144x144-dunplab-manifest-28822.png",
-   "type": "image/png",
-   "sizes": "144x144"
-  },
+ 
   {
    "src": "icon/apple-icon-120x120-dunplab-manifest-28822.png",
    "type": "image/png",
