@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-    <title>Messagerie</title>
+    <title>Elegant Bootstrap 4  message chat box template - Bootsnipp.com</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#4b5480">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="manifest" href="manifest.webmanifest">
-    <style type="text/css">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=3MjzSMFokgqwm3C5KfIporKEYioCGFNgKNUKiWlIkRwUecy5UwE1RmwcGOR-sDBZpIkGKVCa5sK0gE5U7cD6SUgYhZIUv7r0HqgBLcPqnRz4OMtvGYpyihP7pggIuR6jZOZoaJfFAogwbTqeEFaO8A" charset="UTF-8"></script><style type="text/css">
         	body,html{
 			height: 100%;
 			margin: 0;
@@ -402,7 +402,7 @@
 							</div>
 							<div class="d-flex justify-content-end mb-4">
 								<div class="msg_cotainer_send">
-									Ok, thank you have a good day
+									Salut
 									<span class="msg_time_send">9:10 AM, Today</span>
 								</div>
 								<div class="img_cont_msg">
@@ -413,22 +413,29 @@
 								<div class="img_cont_msg">
 									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
 								</div>
-								<div class="msg_cotainer">
-									Bye, see you
+								<div  class="msg_cotainer">
+									bonjour
 									<span class="msg_time">9:12 AM, Today</span>
 								</div>
+								<div id="rendu"class="msg_cotainer"> </div>
 							</div>
 						</div>
 						<div class="card-footer">
-							<div class="input-group">
-								<div class="input-group-append">
-									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
-								</div>
-								<textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
-								<div class="input-group-append">
-									<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
-								</div>
-							</div>
+											
+								
+								<form id="form"class="form-group">
+  									<div class="form-group-append">
+    									<label for="exampleInputEmail1"></label>
+    									<input type="textarea" class="form-control type_msg" placeholder="Type your message..." id="message">
+    								</div>
+    									<div class="form-group-append">
+    									<button type="submit" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button> 
+    									</div>									
+    															    								
+								</form>
+
+								
+							
 						</div>
 					</div>
 				</div>
@@ -436,6 +443,7 @@
 		</div>
 	</body>
 </html>
+
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -445,11 +453,39 @@ $('#action_menu_btn').click(function(){
 	});
 </script>
 <script src="sw.js"></script>
-<script> if('serviceWorker' in navigator){
+ <script>
+            if('serviceWorker' in navigator){
+                navigator.serviceWorker.register('sw.js')
+            }
 
-navigator.serviceWorker.register('sw.js')
-};
+let form=document.getElementById("form");
+let name=document.getElementById("message");
+
+form.addEventListener('submit',(event)=>{
+                event.preventDefault();
+               
+                let storage=name.value;
+                localStorage.setItem('name', storage);})
+
+;
+document.getElementById("rendu") .innerHTML=localStorage.getItem('name');
+
+if (window.Notification && window.Notification !== 'denied') {
+            Notification.requestPermission(perm => {
+// on vérifie ensuite que l’utilisateur a accepté l’affichage des notifications
+                if (perm === 'granted') {
+//on crée une notification 
+                  const notif= new Notification ('bienvenue sur la messagerie Catmail')
+                } else {
+//si l’utilisateur a refusé de recevoir les notifications, on affiche un message dans //la console 
+                    console.log('autorisation de recevoir des notifications refusée');
+                }
+            })
+        }
+
+
 
 </script>
 </body>
 </html>
+
